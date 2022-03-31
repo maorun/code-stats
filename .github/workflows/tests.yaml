@@ -1,0 +1,21 @@
+name: Workflow for Tests
+on: 
+  pull_request:
+  push:
+    branches:
+      - master
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: install
+        id: install
+        run: |
+          npm install
+
+      - name: run tests
+        id: test
+        run: |
+          npm run test

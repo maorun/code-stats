@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders homepage unchanged 1`] = `
+Object {
+  "redirect": [Function],
+  "setHeader": [Function],
+}
+`;
+
+exports[`renders homepage unchanged 2`] = `
+Object {
+  "Content-Type": "image/svg+xml",
+}
+`;
+
+exports[`renders homepage unchanged 3`] = `"https://quickchart.io/chart?c=%7B%22type%22%3A%22outlabeledPie%22%2C%22data%22%3A%7B%22datasets%22%3A%5B%7B%22backgroundColor%22%3A%5B%5D%2C%22data%22%3A%5B%5D%7D%5D%2C%22labels%22%3A%5B%5D%7D%2C%22options%22%3A%7B%22rotation%22%3A-90%2C%22plugins%22%3A%7B%22legend%22%3Afalse%2C%22outlabels%22%3A%7B%22text%22%3A%22%25l%20%25p%22%2C%22color%22%3A%22white%22%2C%22font%22%3A%7B%22resizable%22%3Atrue%2C%22minSize%22%3A12%2C%22maxSize%22%3A18%7D%7D%7D%7D%7D"`;
