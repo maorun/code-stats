@@ -1,9 +1,19 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
+import { useRef, useState } from "react";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
+  const [username, setUserName] = useState<string>("maorun");
+  const [count, setCount] = useState<number | undefined>(10);
+  const codeRef = useRef<HTMLDivElement>(null);
+
+  function CopyToClipboard() {
+    if (codeRef.current?.innerText) {
+      navigator.clipboard.writeText(codeRef.current.innerText);
+    }
+  }
   return (
     <div className={styles.container}>
       <Head>
@@ -14,21 +24,49 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Top 10 Programming-Languages of{" "}
-          <a
-            href="https://github.com/maorun"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            maorun
-          </a>
+          Top
+          <input
+            className={styles.title}
+            value={count}
+            size={count?.toString().length || 1}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              const number = parseInt(e.target.value);
+              if (number) {
+                setCount(number);
+              } else if (e.target.value === "") setCount(undefined);
+            }}
+          />
+          Programming-Languages of
+          <input
+            className={styles.title}
+            value={username}
+            size={username.length}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setUserName(e.target.value)
+            }
+          />
         </h1>
-        <Image
-          height={400}
-          width={600}
-          src="/api/codestats/maorun/top/10"
-          alt="chart"
-        />
+        {count && username && (
+          <>
+            <div className={styles.copyCode}>
+              <div className={styles.code} ref={codeRef}>
+                [![Top
+                Langs](https://code-stats-maorun.vercel.app/api/codestats/
+                {username}/top/{count})](https://codestats.net/users/{username}
+                )]
+              </div>
+              <div className={styles.copy} onClick={CopyToClipboard}>
+                copy
+              </div>
+            </div>
+            <Image
+              height={400}
+              width={600}
+              src={`/api/codestats/${username}/top/${count}`}
+              alt="chart"
+            />
+          </>
+        )}
       </main>
     </div>
   );
