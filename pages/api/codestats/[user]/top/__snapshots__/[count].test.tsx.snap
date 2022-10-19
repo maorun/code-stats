@@ -1,14 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders homepage unchanged 1`] = `
-Object {
+{
   "redirect": [Function],
   "setHeader": [Function],
 }
 `;
 
 exports[`renders homepage unchanged 2`] = `
-Object {
+{
   "Content-Type": "image/svg+xml",
 }
 `;
