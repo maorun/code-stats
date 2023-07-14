@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import handler from "./[count]";
+import handler from "../pages/api/codestats/[user]/top/[count]";
 
 it("renders homepage unchanged", async () => {
     global.fetch = jest.fn(() =>

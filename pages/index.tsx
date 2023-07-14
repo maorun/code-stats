@@ -60,6 +60,7 @@ const Home: NextPage = () => {
               </div>
             </div>
             <Image
+              unoptimized
               height={400}
               width={600}
               src={`/api/codestats/${username}/top/${count}`}
