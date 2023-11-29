@@ -33,7 +33,8 @@ export default async function handler(
   _req: NextApiRequest,
   res: NextApiResponse
 ) {
-  let { user, count } = _req.query;
+  let { count } = _req.query;
+  const { user } = _req.query;
   if (!user) {
     throw new Error("No user provided");
   }
