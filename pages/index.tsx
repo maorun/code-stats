@@ -55,6 +55,7 @@ const Home: NextPage = () => {
                 {username}/top/{count})](https://codestats.net/users/{username}
                 )]
               </div>
+              
               <div className={styles.copy} onClick={CopyToClipboard}>
                 copy
               </div>
