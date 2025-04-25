@@ -1,6 +1,6 @@
 {
   "extends": [
-    "config:recommended", ":automergeAll", "schedule:weekly", "group:monorepos"
+    "config:recommended", ":automergeAll", "schedule:weekly", "group:monorepos", ":disableDependencyDashboard"
   ],
   "lockFileMaintenance": { "enabled": true }
 }
