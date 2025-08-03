@@ -103,7 +103,7 @@ export default async function handler(
         legend: false,
         outlabels: {
           text: "%l %p",
-          color: labelColorCallback as any,
+          color: "%%LABEL_COLOR_CALLBACK_PLACEHOLDER%%" as any,
           font: {
             resizable: true,
             minSize: 12,
@@ -117,7 +117,10 @@ export default async function handler(
   res.setHeader("Content-Type", "image/svg+xml");
   res.redirect(
     `https://quickchart.io/chart?c=${encodeURIComponent(
-      JSON.stringify(cartProperties)
+      JSON.stringify(cartProperties).replace(
+        '"%%LABEL_COLOR_CALLBACK_PLACEHOLDER%%"',
+        labelColorCallback
+      )
     )}`
   );
 }
