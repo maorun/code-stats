@@ -84,7 +84,7 @@ export default async function handler(
   }
 
   const labelColorCallback =
-    "function(context) { const color = context.dataset.backgroundColor[context.dataIndex]; const h = parseInt(color.substring(4, color.indexOf(','))); if (h >= 40 && h <= 190) { return 'black'; } return 'white'; }";
+    "function(context) { const color = context.dataset.backgroundColor[context.dataIndex]; const match = color.match(/hsl\\(\\s*\\d+\\s*,\\s*\\d+%\\s*,\\s*(\\d+)%\\s*\\)/); if (match) { const lightness = parseInt(match[1], 10); return lightness >= 50 ? 'black' : 'white'; } return 'white'; }";
 
   const cartProperties = {
     type: "outlabeledPie",
