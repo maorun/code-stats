@@ -84,7 +84,7 @@ export default async function handler(
   }
 
   const labelColorCallback =
-    "function(context) { const color = context.dataset.backgroundColor[context.dataIndex]; const h = parseInt(color.substring(4, color.indexOf(','))); if (h >= 40 && h <= 190) { return 'black'; } return 'white'; }";
+    "(context) => { const h = (context.dataIndex / context.chart.data.datasets[0].data.length) * 360; if (h >= 40 && h <= 190) { return 'black'; } return 'white'; }";
 
   const cartProperties = {
     type: "outlabeledPie",
