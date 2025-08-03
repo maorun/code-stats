@@ -83,6 +83,9 @@ export default async function handler(
     colors.push(color);
   }
 
+  const labelColorCallback =
+    "function(context) { const color = context.dataset.backgroundColor[context.dataIndex]; const h = parseInt(color.substring(4, color.indexOf(','))); if (h >= 40 && h <= 190) { return 'black'; } return 'white'; }";
+
   const cartProperties = {
     type: "outlabeledPie",
     data: {
@@ -100,7 +103,7 @@ export default async function handler(
         legend: false,
         outlabels: {
           text: "%l %p",
-          color: "white",
+          color: labelColorCallback as any,
           font: {
             resizable: true,
             minSize: 12,
