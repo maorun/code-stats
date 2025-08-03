@@ -103,7 +103,7 @@ export default async function handler(
         legend: false,
         outlabels: {
           text: "%l %p",
-          color: labelColorCallback as any,
+          color: labelColorCallback,
           font: {
             resizable: true,
             minSize: 12,
